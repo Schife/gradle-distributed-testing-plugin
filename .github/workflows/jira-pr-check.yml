@@ -11,4 +11,3 @@ jobs:
         with:
           title-regex: '^((CORDA|EG|ENT|INFRA)-\d+|NOTICK)(.*)'
           on-failed-regex-comment: "PR title failed to match regex -> `%regex%`"
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
