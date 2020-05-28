@@ -1,18 +1,12 @@
 name: 'Jira Check'
 on:
   pull_request:
-    types:
-      # Check title when opened.
-      - opened
-      # Check title when new commits are pushed.
-      # Required to use as a status check.
-      - synchronize
+    types: [assigned, opened, synchronize, reopened]
 
 jobs:
   check-jira-title:
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
-      - uses: schife/check-pull-request-title@v1
+      - uses: morrisoncole/pr-lint-action@v1.1.1
         with:
-          pattern: '^((CORDA|EG|ENT|INFRA)-\d+|NOTICK)(.*)'
+          title-regex: '^((CORDA|EG|ENT|INFRA)-\d+|NOTICK)(.*)'
