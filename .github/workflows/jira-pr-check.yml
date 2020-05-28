@@ -1,7 +1,7 @@
 name: 'Jira Check'
 on:
   pull_request:
-    types: [assigned, opened, reopened]
+    types: [assigned, opened, synchronize, reopened]
 
 jobs:
   check-jira-title:
